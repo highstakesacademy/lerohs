@@ -1,10 +1,17 @@
 import express from 'express';
+import mongoose from 'mongoose';
+
 
 const app = express();
 
-
 app.get('/', (req, res) => {
-  res.json('bora pra acción');
+  res.sendfile('front/index.html')
 });
+
+app.get('/admin', (req, res) => {
+  res.sendfile('front/admin.html');
+});
+
+
 
 export { app };
