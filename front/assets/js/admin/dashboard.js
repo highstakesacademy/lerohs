@@ -1,4 +1,3 @@
-alert('oi')
 const router = new VueRouter({
     routes: [
     ]
