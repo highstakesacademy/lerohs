@@ -31,6 +31,9 @@ app.use(session({
   })
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 // routes
 app.get('/', (req, res) => {
 
@@ -49,6 +52,11 @@ app.get('/', (req, res) => {
 
 app.get('/admin', (req, res) => {
   res.sendfile('front/admin.html');
+});
+
+app.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
 });
 
 
