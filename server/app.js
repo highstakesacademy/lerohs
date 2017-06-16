@@ -32,18 +32,7 @@ app.use(session({
 }));
 
 app.get('/', (req, res) => {
-
-  const newUser = new User({
-    username: 'bla',
-    password: 'blu'
-  });
-
-  newUser.save((err, data) => {
-    console.log(err);
-  });
-
   res.sendfile('front/index.html')
-
 });
 
 app.get('/admin/dashboard', (req, res) => {
