@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import connectmongo from 'connect-mongo';
-import passport from 'passport';
+import passport from './passport.js';
 import path from 'path';
 import User from './models/user';
 
@@ -46,6 +46,12 @@ app.get('/', (req, res) => {
 app.get('/admin/dashboard', (req, res) => {
   res.sendfile('front/admin/dashboard.html');
 });
+
+app.post('/signup', passport.authenticate('local-signup', {
+  successRedirect : '/profile', // redirect to the secure profile section
+  failureRedirect : '/signup', // redirect back to the signup page if there is an error
+  failureFlash : true // allow flash messages
+}));
 
 app.get('/logout', function(req, res) {
     req.logout();
