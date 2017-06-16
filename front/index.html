@@ -4,16 +4,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
     <title>lerohs</title>
   </head>
   <body>
       
-    <div id="app">
-        <p>{{ message }}</p>
+    <div id="app" class="container">
+        <div class="row lerohs">
+            <div class="col-md-9">
+                <p class="fraseLero">
+                    {{ message }}
+                    <cite class="autorLero">{{ cite }}<span>.</span></cite>
+                </p>
+            </div>
+            
+            <div class="col-md-2 col-md-offset-1 col-sm-2 col-xs-4">
+                <div class="autorFoto">
+                    <img class="img-responsive" src="img/goffi.jpg"></img>
+                </div>
+            </div>
+        </div>
     </div>
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="js/main.js"></script>
   </body>
  </html>
