@@ -6,6 +6,7 @@ import connectmongo from 'connect-mongo';
 import passport from './passport.js';
 import path from 'path';
 import User from './models/user';
+import Phrase from './models/phrase';
 
 // mongodb connection
 mongoose.connect('mongodb://localhost:27017/database', () => {
@@ -18,6 +19,9 @@ const MongoStore = connectmongo(session);
 const app = express();
 
 // middleware
+app.set('views', path.join(__dirname, '../front'));
+app.set('view engine', 'ejs');
+
 app.use(express.static(path.join(__dirname, '../front')));
 
 app.use(session({
@@ -39,8 +43,17 @@ app.use(passport.session());
 
 // routes
 app.get('/', (req, res) => {
+	
+	Phrase.count().exec(function (err, count) {
+		const random = Math.floor(Math.random() * count);
 
-  res.sendfile('front/index.html')
+		Phrase.find({}).limit(1).skip(random).exec((err, docs) =>{
+			console.log(docs)
+			res.render('index.ejs', {title: 'lero lero high stakes', phrase: docs[0].content});
+		});
+
+	});
+
 });
 
 app.get('/admin/dashboard', (req, res) => {
