@@ -41,7 +41,6 @@ app.use(passport.session());
 app.get('/', (req, res) => {
 
   res.sendfile('front/index.html')
-
 });
 
 app.get('/admin/dashboard', (req, res) => {
