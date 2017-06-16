@@ -50,8 +50,8 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/admin', (req, res) => {
-  res.sendfile('front/admin.html');
+app.get('/admin/dashboard', (req, res) => {
+  res.sendfile('front/admin/dashboard.html');
 });
 
 app.get('/logout', function(req, res) {
