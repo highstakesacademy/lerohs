@@ -103,3 +103,7 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.container-fluid > .row {
+  padding-top: 50px;
+}
