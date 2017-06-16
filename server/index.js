@@ -1,10 +1,6 @@
-var express = require('express');
-var app = express();
+import { app } from './app';
 
-app.get('/', function (req, res) {
-  
-});
 
-app.listen(3000, function () {
-  console.log('app is listening on port 3000!');
+app.listen(3000, () => {
+	console.log('Running on port 3000...');
 });
