@@ -7,7 +7,33 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": {
+    "name": "high stakes",
+    "email": "team@highstakes.co",
+    "url": "http://highstakes.co"
+  },
+  "contributors": [
+    {
+      "name": "andre lucas guimaraes",
+      "email": "andrelug@hsacademy.com.br",
+      "url": "http://www.igluonline.com/"
+    },
+    {
+      "name": "diana arnos",
+      "email": "diarnos@hsacademy.com.br",
+      "url": "http://dianaarnos.com"
+    },
+    {
+      "name": "michael klemersson de souza",
+      "email": "mklemersson@hsacademy.com.br",
+      "url": "http://michaelklemersson.com/"
+    },
+    {
+      "name": "willian dutra",
+      "email": "wdutra@hsacademy.com.br",
+      "url": "http://williandutras.com/"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "express": "^4.15.3"
