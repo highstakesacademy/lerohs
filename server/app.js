@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import session from 'express-session';
 import connectmongo from 'connect-mongo';
 import passport from 'passport';
+import path from 'path';
 import User from './models/user';
 
 // mongodb connection
@@ -17,6 +18,8 @@ const MongoStore = connectmongo(session);
 const app = express();
 
 // middleware
+app.use(express.static(path.join(__dirname, '../front')));
+
 app.use(session({
   resave: false,
   saveUninitialized: true,
@@ -36,15 +39,6 @@ app.use(passport.session());
 
 // routes
 app.get('/', (req, res) => {
-
-  const newUser = new User({
-    username: 'bla',
-    password: 'blu'
-  });
-
-  newUser.save((err, data) => {
-    console.log(err);
-  });
 
   res.sendfile('front/index.html')
 
