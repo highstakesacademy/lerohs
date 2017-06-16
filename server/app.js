@@ -44,13 +44,32 @@ app.get('/', (req, res) => {
 });
 
 app.get('/admin/dashboard', (req, res) => {
-  res.sendfile('front/admin/dashboard.html');
+	if(req.user) {
+			res.sendfile('front/admin/dashboard.html');
+	} else {
+		res.sendfile('front/login.html');
+	}
+
+});
+
+app.get('/signup', (req, res) => {
+	res.sendfile('front/signup.html');
 });
 
 app.post('/signup', passport.authenticate('local-signup', {
-  successRedirect : '/profile', // redirect to the secure profile section
+  successRedirect : '/', // redirect to the secure profile section
   failureRedirect : '/signup', // redirect back to the signup page if there is an error
   failureFlash : true // allow flash messages
+}));
+
+app.get('/login', (req, res) => {
+	res.sendfile('front/login.html');
+});
+
+app.post('/login', passport.authenticate('local-login', {
+    successRedirect : '/', // redirect to the secure profile section
+    failureRedirect : '/login', // redirect back to the signup page if there is an error
+    failureFlash : true // allow flash messages
 }));
 
 app.get('/logout', function(req, res) {
