@@ -6,16 +6,11 @@ import connectmongo from 'connect-mongo';
 import passport from './passport.js';
 import striptags from 'striptags';
 import path from 'path';
-<<<<<<< HEAD
-import Phrase from './models/phrase';
-// import User from './models/user';
-=======
 import User from './models/user';
 import Phrase from './models/phrase';
->>>>>>> bd3ad0f318fa93be8c92f1046d3bb6d79cd3631f
 
 // mongodb connection
-mongoose.connect('mongodb://localhost:27017/database', () => {
+mongoose.connect('mongodb://mongo:27017/database', () => {
 	console.log('Connected to mongodb...');
 });
 
@@ -36,7 +31,7 @@ app.use(session({
   saveUninitialized: true,
   secret: 'asadlfjadçfkjalkdjalfkdjalkfd',
   store: new MongoStore({
-	url: 'mongodb://localhost:27017/databaseSession',
+	url: 'mongodb://mongo:27017/databaseSession',
 	cookie: {
 		maxAge: 518400000
 	},
@@ -50,9 +45,6 @@ app.use(session({
 
 // routes
 app.get('/', (req, res) => {
-<<<<<<< HEAD
-  res.sendfile('front/index.html')
-=======
 	
 	Phrase.count().exec(function (err, count) {
 		const random = Math.floor(Math.random() * count);
@@ -62,9 +54,11 @@ app.get('/', (req, res) => {
 			res.render('index.ejs', {title: 'lero lero high stakes', phrase: docs[0].content});
 		});
 
-	});
+  });
 
->>>>>>> bd3ad0f318fa93be8c92f1046d3bb6d79cd3631f
+  // TODO code for testing purposes. please, remove me.
+  // res.render('index.ejs', {title: 'lero lero high stakes', phrase: "teste"});
+
 });
 
 app.get('/dashboard', (req, res) => {
